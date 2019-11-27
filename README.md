@@ -1,7 +1,7 @@
 # docker-symfony
 Docker compose setup that I use when developing symfony app's.
 
-##Setup
+## Setup
 Assuming you have Composer installed on your host computer, run `composer install symfony/website-skeleton`
 to setup your app. After composer has setup the app, copy all files in this repo to your app's base dir before preceding.
 
@@ -13,7 +13,7 @@ to setup your app. After composer has setup the app, copy all files in this repo
 
 - run `make start` to start the containers.
 
-##Notes
+## Notes
 - Use `make stop` rather than `make down` to stop the containers. Otherwise, you'll have to rebuild the
 containers every time you want to spin them back up using `make up`.
 
