@@ -43,7 +43,14 @@ RUN docker-php-ext-install pdo_mysql && \
 RUN apt-get update && apt-get install -yqq libxslt1-dev libxslt1.1
 RUN docker-php-ext-install xsl
 
+# Add cache location for composer
 RUN mkdir /.composer && chown developer:developer /.composer
+
+# Install Symfony Installer
+RUN wget https://get.symfony.com/cli/installer -O - | bash
+
+# Make Symfony Global
+RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 # Set which account to use
 USER developer
