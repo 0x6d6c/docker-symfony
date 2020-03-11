@@ -6,6 +6,7 @@ FROM php:${PHP_VERSION}-cli-buster
 RUN apt-get update && apt-get install -yqq \
     libzip-dev \
     zip \
+    wget \
     gnupg \
     git \
     libsodium-dev \
