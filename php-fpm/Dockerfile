@@ -6,6 +6,8 @@ RUN apk update && \
     apk add --no-cache libsodium && \
     apk add --no-cache libsodium-dev && \
     apk add --no-cache libxslt-dev && \
+    apk add --no-cache icu-libs && \
+    apk add --no-cache icu-dev && \
     apk add --no-cache $PHPIZE_DEPS
 
 RUN pecl install xdebug
@@ -13,7 +15,9 @@ RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug && \
     docker-php-ext-install pdo_mysql && \
     docker-php-ext-install sodium && \
-    docker-php-ext-install xsl
+    docker-php-ext-install xsl && \
+    docker-php-ext-configure intl && \
+    docker-php-ext-install intl
 
 RUN cp $(find /usr/local/etc/php -name "php.ini-development") /usr/local/etc/php/php.ini
 
